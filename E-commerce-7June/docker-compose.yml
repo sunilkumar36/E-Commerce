@@ -1,11 +1,16 @@
 version: '3'
 services:
   php-apache:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     ports:
-      - "8080:80"
-    volumes:
-      - .:/var/www/html
+      - "8080:8080"
+    depends_on:
+      - db
+
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: MfIclv+8JjFpt7NxiLqXuS7lfyoy1gQQILEIlqGYHzw=
+      MYSQL_DATABASE: 6valy_db
+      MYSQL_PASSWORD: dtkLpP69q4QzLIgP
 
